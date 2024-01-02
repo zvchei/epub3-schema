@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.idpf.org/2007/opf" targetNamespace="http://www.idpf.org/2007/opf" elementFormDefault="qualified">
 	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd" />
+	<xsd:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd" />
 
 	<xsd:attribute name="lang" type="xsd:language" xmlns:xml="http://www.w3.org/XML/1998/namespace" />
 
@@ -37,7 +38,12 @@
 	<xsd:complexType name="metadata" xmlns:dc="http://purl.org/dc/elements/1.1/">
 		<!-- TODO: Switch to <xsd:all> when Red Hat's XML plugin starts supporting XSD 1.1 -->
 		<xsd:sequence>
-
+			<!-- TODO: Use xsd:assert (XSD 1.1) to verify that a dc:identifier with an id == unique-identifier exists -->
+			<xsd:element ref="dc:identifier" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element ref="dc:title" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element ref="dc:language" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element ref="dc:optionalTextAttribute" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			<xsd:element ref="dc:optionalAttribute" minOccurs="0" maxOccurs="unbounded"></xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
