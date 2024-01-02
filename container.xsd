@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:oasis:names:tc:opendocument:xmlns:container" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:urn="urn:oasis:names:tc:opendocument:xmlns:container">
+	<xsd:element name="container" type="urn:container">
+		<xsd:annotation>
+			<xsd:documentation>The root element of the container.xml file.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:complexType name="container">
+		<xsd:annotation>
+			<xsd:documentation>Collection of the components of an EPUB package.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="rootfiles" type="urn:rootfiles" />
+			<!-- <xsd:element name="links" type="urn:links" minOccurs="0" /> -->
+		</xsd:sequence>
+		<xsd:attribute name="version" use="required" fixed="1.0" />
+	</xsd:complexType>
+
+	<xsd:complexType name="rootfiles">
+		<xsd:annotation>
+			<xsd:documentation>The list of the package documents.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="rootfile" type="urn:rootfile" minOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="rootfile">
+		<xsd:annotation>
+			<xsd:documentation>A package document definition.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="full-path" type="xsd:anyURI" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Identifies the location of a package document, relative to the root directory.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="media-type" use="required" fixed="application/oebps-package+xml">
+		</xsd:attribute>
+	</xsd:complexType>
+</xsd:schema>

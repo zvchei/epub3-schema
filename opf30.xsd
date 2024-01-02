@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.idpf.org/2007/opf" targetNamespace="http://www.idpf.org/2007/opf" elementFormDefault="qualified">
+	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd" />
+
+	<xsd:attribute name="lang" type="xsd:language" xmlns:xml="http://www.w3.org/XML/1998/namespace" />
+
+	<xsd:attribute name="dir">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="ltr" />
+				<xsd:enumeration value="rtl" />
+				<xsd:enumeration value="auto" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:element name="package">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="metadata" type="metadata" minOccurs="1" maxOccurs="1" />
+				<xsd:element name="manifest" type="manifest" minOccurs="1" maxOccurs="1" />
+				<xsd:element name="spine" type="spine" minOccurs="1" maxOccurs="1" />
+				<!-- TODO: Define <xsd:element name="guide" ... /> -->
+				<!-- TODO: Define <xsd:element name="bindings" ... /> -->
+				<!-- TODO: Define <xsd:element name="collection" ... /> -->
+			</xsd:sequence>
+			<xsd:attribute ref="dir" />
+			<xsd:attribute name="id" type="xsd:Name" />
+			<!-- TODO: Define <xsd:attribute name="prefix" ... /> -->
+			<xsd:attribute name="version" fixed="3.0" />
+			<xsd:attribute name="unique-identifier" type="xsd:Name" />
+			<xsd:attribute ref="xml:lang" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="metadata" xmlns:dc="http://purl.org/dc/elements/1.1/">
+		<!-- TODO: Switch to <xsd:all> when Red Hat's XML plugin starts supporting XSD 1.1 -->
+		<xsd:sequence>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="manifest">
+		<xsd:sequence>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="spine">
+		<xsd:sequence>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="meta">
+		<xsd:sequence>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
