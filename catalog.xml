@@ -1,0 +1,5 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+	<uri name="http://www.idpf.org/2007/opf" uri="opf30.xsd" />
+	<uri name="urn:oasis:names:tc:opendocument:xmlns:container" uri="container.xsd" />
+	<uri name="http://www.w3.org/1999/xhtml" uri="https://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd" />
+</catalog>
