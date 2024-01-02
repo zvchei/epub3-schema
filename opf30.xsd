@@ -54,6 +54,7 @@
 		<xsd:sequence>
 			<xsd:element name="item" type="item" minOccurs="1" maxOccurs="unbounded" />
 		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:Name" />
 	</xsd:complexType>
 
 	<xsd:complexType name="spine">
