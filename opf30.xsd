@@ -42,6 +42,8 @@
 			<xsd:element ref="dc:language" minOccurs="1" maxOccurs="unbounded" />
 			<xsd:element ref="dc:optionalTextAttribute" minOccurs="0" maxOccurs="unbounded"></xsd:element>
 			<xsd:element ref="dc:optionalAttribute" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			<xsd:element name="meta" type="meta.modified" minOccurs="1" maxOccurs="1"></xsd:element>
+			<xsd:element name="meta" type="meta" minOccurs="0" maxOccurs="unbounded"></xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -58,8 +60,23 @@
 	</xsd:complexType>
 
 	<xsd:complexType name="meta">
-		<xsd:sequence>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="property" type="xsd:string" use="required" />
+				<xsd:attribute name="dir" type="dir" />
+				<xsd:attribute name="id" type="xsd:Name" />
+				<xsd:attribute name="refines" type="xsd:anyURI" />
+				<xsd:attribute name="scheme" type="xsd:anyURI" />
+				<xsd:attribute ref="xml:lang" />
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
 
-		</xsd:sequence>
+	<xsd:complexType name="meta.modified" >
+		<xsd:simpleContent>
+			<xsd:restriction base="meta">
+				<xsd:attribute name="property" fixed="dcterms:modified" type="xsd:string" use="required" />
+			</xsd:restriction>
+		</xsd:simpleContent>
 	</xsd:complexType>
 </xsd:schema>
