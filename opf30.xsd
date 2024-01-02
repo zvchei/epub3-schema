@@ -16,6 +16,21 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
+	<xsd:simpleType name="ppd">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ltr" />
+			<xsd:enumeration value="rtl" />
+			<xsd:enumeration value="default" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="YesOrNo">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="yes" />
+			<xsd:enumeration value="no" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
 	<xsd:element name="package">
 		<xsd:complexType>
 			<xsd:sequence>
@@ -59,8 +74,11 @@
 
 	<xsd:complexType name="spine">
 		<xsd:sequence>
-
+			<xsd:element name="itemref" type="itemref" minOccurs="1" maxOccurs="unbounded" />
 		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:Name" />
+		<xsd:attribute name="page-progression-direction" type="ppd" />
+		<xsd:attribute name="toc" type="xsd:Name" />
 	</xsd:complexType>
 
 	<xsd:complexType name="meta">
@@ -100,6 +118,13 @@
 		<xsd:attribute name="id" type="xsd:Name" use="required" />
 		<xsd:attribute name="media-overlay" type="xsd:string" />
 		<xsd:attribute name="media-type" type="xsd:string" use="required" />
+		<xsd:attribute name="properties" type="xsd:string" />
+	</xsd:complexType>
+
+	<xsd:complexType name="itemref">
+		<xsd:attribute name="id" type="xsd:Name" />
+		<xsd:attribute name="idref" type="xsd:Name" use="required" />
+		<xsd:attribute name="linear" type="YesOrNo" />
 		<xsd:attribute name="properties" type="xsd:string" />
 	</xsd:complexType>
 </xsd:schema>
