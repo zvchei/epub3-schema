@@ -7,12 +7,12 @@
 
 	<!-- TODO: Extract the 'dir' element/type into a separate file for shared usage by both dc.xsd and opf30.xsd -->
 	<xsd:simpleType name="dir">
-			<xsd:restriction base="xsd:string">
-				<xsd:enumeration value="ltr" />
-				<xsd:enumeration value="rtl" />
-				<xsd:enumeration value="auto" />
-			</xsd:restriction>
-		</xsd:simpleType>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ltr" />
+			<xsd:enumeration value="rtl" />
+			<xsd:enumeration value="auto" />
+		</xsd:restriction>
+	</xsd:simpleType>
 
 	<xsd:element name="package">
 		<xsd:complexType>
