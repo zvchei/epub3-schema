@@ -75,7 +75,7 @@
 		</xsd:simpleContent>
 	</xsd:complexType>
 
-	<xsd:complexType name="meta.modified" >
+	<xsd:complexType name="meta.modified">
 		<xsd:simpleContent>
 			<xsd:restriction base="meta">
 				<xsd:attribute name="property" fixed="dcterms:modified" type="xsd:string" use="required" />
