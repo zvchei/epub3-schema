@@ -3,6 +3,8 @@
 	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd" />
 	<xsd:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd" />
 
+	<!-- TODO: Many of the types below are not as strict as required in the EPUB 3 specification. -->
+
 	<xsd:attribute name="lang" type="xsd:language" xmlns:xml="http://www.w3.org/XML/1998/namespace" />
 
 	<!-- TODO: Extract the 'dir' element/type into a separate file for shared usage by both dc.xsd and opf30.xsd -->
