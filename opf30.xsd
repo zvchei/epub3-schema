@@ -44,6 +44,7 @@
 			<xsd:element ref="dc:optionalAttribute" minOccurs="0" maxOccurs="unbounded"></xsd:element>
 			<xsd:element name="meta" type="meta.modified" minOccurs="1" maxOccurs="1"></xsd:element>
 			<xsd:element name="meta" type="meta" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			<xsd:element name="link" type="link" minOccurs="0" maxOccurs="unbounded"></xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -78,5 +79,15 @@
 				<xsd:attribute name="property" fixed="dcterms:modified" type="xsd:string" use="required" />
 			</xsd:restriction>
 		</xsd:simpleContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="link">
+		<xsd:attribute name="href" type="xsd:anyURI" use="required" />
+		<xsd:attribute name="hreflang" type="xsd:language" />
+		<xsd:attribute name="id" type="xsd:Name" />
+		<xsd:attribute name="media-type" type="xsd:string" />
+		<xsd:attribute name="properties" type="xsd:string" />
+		<xsd:attribute name="refines" type="xsd:anyURI" />
+		<xsd:attribute name="rel" type="xsd:token" />
 	</xsd:complexType>
 </xsd:schema>
