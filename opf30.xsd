@@ -52,7 +52,7 @@
 
 	<xsd:complexType name="manifest">
 		<xsd:sequence>
-
+			<xsd:element name="item" type="item" minOccurs="1" maxOccurs="unbounded" />
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -87,9 +87,18 @@
 		<xsd:attribute name="href" type="xsd:anyURI" use="required" />
 		<xsd:attribute name="hreflang" type="xsd:language" />
 		<xsd:attribute name="id" type="xsd:Name" />
-		<xsd:attribute name="media-type" type="xsd:string" />
+		<xsd:attribute name="media-type" type="xsd:string" /><!-- TODO: Conditionally required. -->
 		<xsd:attribute name="properties" type="xsd:string" />
 		<xsd:attribute name="refines" type="xsd:anyURI" />
 		<xsd:attribute name="rel" type="xsd:token" />
+	</xsd:complexType>
+
+	<xsd:complexType name="item">
+		<xsd:attribute name="fallback" type="xsd:Name" /><!-- TODO: Conditionally required. -->
+		<xsd:attribute name="href" type="xsd:anyURI" use="required" />
+		<xsd:attribute name="id" type="xsd:Name" use="required" />
+		<xsd:attribute name="media-overlay" type="xsd:string" />
+		<xsd:attribute name="media-type" type="xsd:string" use="required" />
+		<xsd:attribute name="properties" type="xsd:string" />
 	</xsd:complexType>
 </xsd:schema>
