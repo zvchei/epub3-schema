@@ -5,16 +5,14 @@
 
 	<xsd:attribute name="lang" type="xsd:language" xmlns:xml="http://www.w3.org/XML/1998/namespace" />
 
-	<!-- TODO: Extract the 'dir' element into a separate file for shared usage by both dc.xsd and opf30.xsd -->
-	<xsd:attribute name="dir">
-		<xsd:simpleType>
+	<!-- TODO: Extract the 'dir' element/type into a separate file for shared usage by both dc.xsd and opf30.xsd -->
+	<xsd:simpleType name="dir">
 			<xsd:restriction base="xsd:string">
 				<xsd:enumeration value="ltr" />
 				<xsd:enumeration value="rtl" />
 				<xsd:enumeration value="auto" />
 			</xsd:restriction>
 		</xsd:simpleType>
-	</xsd:attribute>
 
 	<xsd:element name="package">
 		<xsd:complexType>
@@ -26,7 +24,7 @@
 				<!-- TODO: Define <xsd:element name="bindings" ... /> -->
 				<!-- TODO: Define <xsd:element name="collection" ... /> -->
 			</xsd:sequence>
-			<xsd:attribute ref="dir" />
+			<xsd:attribute name="dir" type="dir" />
 			<xsd:attribute name="id" type="xsd:Name" />
 			<!-- TODO: Define <xsd:attribute name="prefix" ... /> -->
 			<xsd:attribute name="version" fixed="3.0" />
