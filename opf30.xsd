@@ -4,6 +4,7 @@
 	<xsd:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd" />
 
 	<!-- TODO: Many of the types below are not as strict as required in the EPUB 3 specification. -->
+	<!-- TODO: Revisit the definitions of the 'id' and reference attributes and apply proper types (ID, IDREF, etc.) -->
 
 	<xsd:attribute name="lang" type="xsd:language" xmlns:xml="http://www.w3.org/XML/1998/namespace" />
 
