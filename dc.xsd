@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://purl.org/dc/elements/1.1/" targetNamespace="http://purl.org/dc/elements/1.1/">
+	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd" />
+	
+	<xsd:attribute name="lang" type="xsd:language" xmlns:xml="http://www.w3.org/XML/1998/namespace" />
+
+	<!-- TODO: Extract the 'dir' element into a separate file for shared usage by both dc.xsd and opf30.xsd -->
+	<xsd:attribute name="dir">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="ltr" />
+				<xsd:enumeration value="rtl" />
+				<xsd:enumeration value="auto" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+
+	<xsd:element name="identifier">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute name="id" type="xsd:Name" use="optional" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="title">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="dir" use="optional" />
+					<xsd:attribute name="id" type="xsd:Name" use="optional" />
+					<xsd:attribute ref="xml:lang" use="optional" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="language" type="xsd:language" />
+
+	<xsd:element name="optionalAttribute">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute name="id" type="xsd:Name" use="optional" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="date" substitutionGroup="optionalAttribute" />
+	<xsd:element name="format" substitutionGroup="optionalAttribute" />
+	<xsd:element name="source" substitutionGroup="optionalAttribute" />
+	<xsd:element name="type" substitutionGroup="optionalAttribute" />
+
+	<xsd:element name="optionalTextAttribute">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute name="id" type="xsd:Name" use="optional" />
+					<xsd:attribute ref="xml:lang" use="optional" />
+					<xsd:attribute ref="dir" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="contributor" substitutionGroup="optionalTextAttribute" />
+	<xsd:element name="coverage" substitutionGroup="optionalTextAttribute" />
+	<xsd:element name="creator" substitutionGroup="optionalTextAttribute" />
+	<xsd:element name="description" substitutionGroup="optionalTextAttribute" />
+	<xsd:element name="publisher" substitutionGroup="optionalTextAttribute" />
+	<xsd:element name="relation" substitutionGroup="optionalTextAttribute" />
+	<xsd:element name="rights" substitutionGroup="optionalTextAttribute" />
+	<xsd:element name="subject" substitutionGroup="optionalTextAttribute" />
+</xsd:schema>

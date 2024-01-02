@@ -4,6 +4,7 @@
 
 	<xsd:attribute name="lang" type="xsd:language" xmlns:xml="http://www.w3.org/XML/1998/namespace" />
 
+	<!-- TODO: Extract the 'dir' element into a separate file for shared usage by both dc.xsd and opf30.xsd -->
 	<xsd:attribute name="dir">
 		<xsd:simpleType>
 			<xsd:restriction base="xsd:string">
